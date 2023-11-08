@@ -1,0 +1,25 @@
+.header-icon {
+    margin: 20px 50px;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+@media screen and (max-width:768px) {
+    .header-icon{
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .header-icon{
+        margin: 10px 25px;
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width:375px) {
+    .header-icon{
+        margin: 0px 15px;
+        font-size: 20px;
+    }
+}
