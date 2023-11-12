@@ -19,12 +19,13 @@ use App\Http\Controllers\AttendanceController;
 
 Route::get('/register', [RegisteredUserController::class, 'create']);
 Route::post('/register', [RegisteredUserController::class, 'store']);
-Route::get('/login', [AuthenticatedSessionController::class, 'store']);
-Route::post('/login', [AuthenticatedSessionController::class, 'destroy']);
+Route::get('/login', [AuthenticatedSessionController::class, 'create']);
+Route::post('/login', [AuthenticatedSessionController::class, 'store']);
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy']);
 
-Route::get('/', [TimeStampsController::class, 'screen']);
+Route::get('/', [TimeStampsController::class, 'create']);
 Route::get('/work', [TimeStampsController::class, 'start']);
 Route::post('/work', [TimeStampsController::class, 'restart']);
 Route::get('/break', [TimeStampsController::class, 'break']);
 Route::post('/break', [TimeStampsController::class, 'stop']);
-Route::get('/attendance', [AttendanceController::class, 'screen']);
+Route::get('/attendance', [AttendanceController::class, 'create']);

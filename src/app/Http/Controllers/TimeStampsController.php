@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class TimeStampsController extends Controller
 {
-    public function screen(){
+    public function create(){
         return view('stamp');
     }
 

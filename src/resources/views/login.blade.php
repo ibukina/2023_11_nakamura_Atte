@@ -8,12 +8,13 @@
 <div class="content-login">
     <div class="login-form_title">ログイン</div>
     <div class="login-form_wrapper">
-        <form class="login-form" action="">
+        <form class="login-form" action="/login" method="post">
+            @csrf
             <label class="login-form_item">
-                <input type="text" class="login-form_item-input">
+                <input type="text" name="email" class="login-form_item-input" placeholder="メールアドレス">
             </label>
             <label class="login-form_item">
-                <input type="text" class="login-form_item-input">
+                <input type="password" name="password" class="login-form_item-input" placeholder="パスワード">
             </label>
             <label class="login-form_item">
                 <button class="login-form_item-button" type="submit">ログイン</button>

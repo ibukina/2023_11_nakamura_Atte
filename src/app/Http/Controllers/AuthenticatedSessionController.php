@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class AuthenticatedSessionController extends Controller
 {
+    public function create(){
+        return view ('login');
+    }
+
     public function store(){
         return view ('login');
     }

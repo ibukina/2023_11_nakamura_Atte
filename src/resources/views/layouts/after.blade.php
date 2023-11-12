@@ -19,13 +19,13 @@
             <nav class="header-list">
                 <ul class="header-list_item-wrapper">
                     <li class="header-list_item">
-                        <a class="header-list_item-link" href="">ホーム</a>
+                        <a class="header-list_item-link" href="/stamp">ホーム</a>
                     </li>
                     <li class="header-list_item">
                         <a class="header-list_item-link" href="">日付一覧</a>
                     </li>
                     <li class="header-list_item">
-                        <a class="header-list_item-link" href="">ログアウト</a>
+                        <a class="header-list_item-link" action="/logout">ログアウト</a>
                     </li>
                 </ul>
             </nav>

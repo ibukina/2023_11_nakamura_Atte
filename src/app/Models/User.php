@@ -19,15 +19,17 @@ class User extends Authenticatable
      * @var array<int, string>
      */
 
-    public function management(){
-        return $this->belongsTo('App\Models\Management');
+    public function jobs(){
+        return $this->hasMany('App\Models\Job');
     }
 
-    public function times(){
-        return $this->hasMany('App\Models\Time');
+    public function rests(){
+        return $this->hasMany('App\Models\Rest');
     }
 
     protected $fillable = [
+        'job_id',
+        'rest_id',
         'username',
         'email',
         'password',

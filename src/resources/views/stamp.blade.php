@@ -10,20 +10,24 @@
         さんお疲れ様です！
     </div>
     <div class="stamp-form_wrapper">
-        <form class="stamp-form" action="">
-            <div class="stamp-form_item">
+        <div class="stamp-form">
+            <form class="stamp-form_item" action="/stamp/work" method="get">
+                @csrf
                 <button class="stamp-form_item-button">勤務開始</button>
-            </div>
-            <div class="stamp-form_item">
+            </form>
+            <form class="stamp-form_item" action="/stamp/break" method="post">
+                @csrf
                 <button class="stamp-form_item-button">勤務終了</button>
-            </div>
-            <div class="stamp-form_item">
+            </form>
+            <form class="stamp-form_item" action="/stamp/break" method="get">
+                @csrf
                 <button class="stamp-form_item-button">休憩開始</button>
-            </div>
-            <div class="stamp-form_item">
+            </form>
+            <form class="stamp-form_item" action="/stamp/work" method="post">
+                @csrf
                 <button class="stamp-form_item-button">休憩終了</button>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
 @endsection
