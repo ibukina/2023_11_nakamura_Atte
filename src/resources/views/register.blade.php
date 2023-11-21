@@ -1,4 +1,4 @@
-@extends('layouts.before')
+@extends('layouts.app')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/register.css') }}">
@@ -8,18 +8,19 @@
 <div class="content-register">
     <div class="register-form_title">会員登録</div>
     <div class="register-form_wrapper">
-        <form class="register-form" action="">
+        <form class="register-form" action="/register" method="post">
+            @csrf
             <label class="register-form_item">
-                <input type="text" class="register-form_item-input">
+                <input type="text" name="username" class="register-form_item-input" placeholder="名前">
             </label>
             <label class="register-form_item">
-                <input type="text" class="register-form_item-input">
+                <input type="text" name="email" class="register-form_item-input" placeholder="メールアドレス">
             </label>
             <label class="register-form_item">
-                <input type="text" class="register-form_item-input">
+                <input type="password" name="password" class="register-form_item-input" placeholder="パスワード">
             </label>
             <label class="register-form_item">
-                <input type="text" class="register-form_item-input">
+                <input type="password" name="password_confirmation" class="register-form_item-input" placeholder="確認用パスワード">
             </label>
             <label class="register-form_item">
                 <button class="register-form_item-button" type="submit">会員登録</button>

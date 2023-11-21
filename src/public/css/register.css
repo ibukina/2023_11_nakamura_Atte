@@ -21,7 +21,8 @@
 }
 
 .register-form_item-input {
-    padding: 12px 100px;
+    height: 45px;
+    width: 385px;
     background-color: #f2f2f2;
     border: 2px solid #909090;
     border-radius: 3px;
@@ -56,10 +57,11 @@
 
 @media screen and (max-width:375px) {
     .register-form_item-input{
-        padding: 12px 50px;
+        height: 40px;
+        width: 300px;
     }
 
     .register-form_item-button{
-        padding: 12px 113px;
+        padding: 10px 120px;
     }
 }

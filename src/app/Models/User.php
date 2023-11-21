@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-// use Illuminate\Notifications\Notifiable;
+use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -19,15 +19,17 @@ class User extends Authenticatable
      * @var array<int, string>
      */
 
-    public function management(){
-        return $this->belongsTo('App\Models\Management');
+    public function jobs(){
+        return $this->hasMany('App\Models\Job');
     }
 
-    public function times(){
-        return $this->hasMany('App\Models\Time');
+    public function rests(){
+        return $this->hasMany('App\Models\Rest');
     }
 
     protected $fillable = [
+        'job_id',
+        'rest_id',
         'username',
         'email',
         'password',
