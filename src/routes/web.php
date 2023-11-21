@@ -18,14 +18,18 @@ use App\Http\Controllers\AttendanceController;
 */
 
 Route::get('/register', [RegisteredUserController::class, 'create']);
-Route::post('/register', [RegisteredUserController::class, 'store']);
+Route::post('/register', [RegisteredUserController::class, 'store'])->name('login');
 Route::get('/login', [AuthenticatedSessionController::class, 'create']);
-Route::post('/login', [AuthenticatedSessionController::class, 'store']);
+Route::post('/login', [AuthenticatedSessionController::class, 'store'])->name('login');
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy']);
 
-Route::get('/', [TimeStampsController::class, 'create']);
+Route::middleware('auth:web')->group(function () {
+    Route::get('/', [TimeStampsController::class, 'create']);
+    Route::get('/attendance', [AttendanceController::class, 'create']);
+});
 Route::get('/work', [TimeStampsController::class, 'start']);
 Route::post('/work', [TimeStampsController::class, 'restart']);
 Route::get('/break', [TimeStampsController::class, 'break']);
 Route::post('/break', [TimeStampsController::class, 'stop']);
-Route::get('/attendance', [AttendanceController::class, 'create']);
+
+require __DIR__.'../../config/fortify.php';

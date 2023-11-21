@@ -3,11 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Job;
+use App\Models\Rest;
 
 class TimeStampsController extends Controller
 {
+    public function _construct(){
+        $this->middleware('auth')->only(['stamp', 'attendance']);
+    }
+
     public function create(){
-        return view('stamp');
+        $this->middleware(function(){
+            $user=Auth::user();
+            return view('stamp', ['user'=>$user]);
+        });
     }
 
     public function start(){

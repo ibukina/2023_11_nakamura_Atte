@@ -1,4 +1,4 @@
-@extends('layouts.before')
+@extends('layouts.app')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/register.css') }}">
@@ -20,7 +20,7 @@
                 <input type="password" name="password" class="register-form_item-input" placeholder="パスワード">
             </label>
             <label class="register-form_item">
-                <input type="password" name="password_confirm" class="register-form_item-input" placeholder="確認用パスワード">
+                <input type="password" name="password_confirmation" class="register-form_item-input" placeholder="確認用パスワード">
             </label>
             <label class="register-form_item">
                 <button class="register-form_item-button" type="submit">会員登録</button>
