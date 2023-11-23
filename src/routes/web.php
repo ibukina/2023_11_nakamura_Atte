@@ -27,9 +27,9 @@ Route::middleware('auth:web')->group(function () {
     Route::get('/', [TimeStampsController::class, 'create']);
     Route::get('/attendance', [AttendanceController::class, 'create']);
 });
-Route::get('/work', [TimeStampsController::class, 'start']);
-Route::post('/work', [TimeStampsController::class, 'restart']);
-Route::get('/break', [TimeStampsController::class, 'break']);
-Route::post('/break', [TimeStampsController::class, 'stop']);
+Route::post('/job/start', [TimeStampsController::class, 'start']);
+Route::post('/rest/start', [TimeStampsController::class, 'break']);
+Route::post('/rest/stop', [TimeStampsController::class, 'restart']);
+Route::post('/job/stop', [TimeStampsController::class, 'stop']);
 
 require __DIR__.'../../config/fortify.php';

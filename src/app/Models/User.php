@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -34,6 +35,15 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+
+    public function insertUser($username, $email, $password)
+    {
+        return $this->create([
+            'username' => $username,
+            'email'=> $email,
+            'password'     => Hash::make($password),
+        ]);
+    }
 
     /**
      * The attributes that should be hidden for serialization.
