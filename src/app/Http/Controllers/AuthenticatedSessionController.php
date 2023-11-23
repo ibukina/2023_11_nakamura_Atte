@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\LoginRequest;
 use App\Models\User;
 
@@ -13,13 +14,16 @@ class AuthenticatedSessionController extends Controller
     }
 
     public function store(LoginRequest $request){
-        $credentials=$request->only('username', 'password');
+        $hashed=$request->only('password');
+        $password=Hash::make($hashed);
+        $credentials=[$request->only('email'),$password];
         if(Auth::attempt($credentials)){
-            return redirect()->intended('/stamp');
+            return redirect()->intended('/');
         }
     }
 
     public function destroy(){
-        return view('login');
+        Auth::logout();
+        return redirect('login');
     }
 }
