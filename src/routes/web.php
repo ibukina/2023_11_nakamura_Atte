@@ -18,15 +18,13 @@ use App\Http\Controllers\AttendanceController;
 */
 
 Route::get('/register', [RegisteredUserController::class, 'create']);
-Route::post('/register', [RegisteredUserController::class, 'store'])->name('login');
+Route::post('/register', [RegisteredUserController::class, 'store'])->name('register');
 Route::get('/login', [AuthenticatedSessionController::class, 'create']);
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])->name('login');
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy']);
 
-Route::middleware('auth:web')->group(function () {
-    Route::get('/', [TimeStampsController::class, 'create']);
-    Route::get('/attendance', [AttendanceController::class, 'create']);
-});
+Route::get('/attendance', [AttendanceController::class, 'create'])->middleware('auth');
+Route::get('/', [TimeStampsController::class, 'create'])->middleware('auth');
 Route::post('/job/start', [TimeStampsController::class, 'start']);
 Route::post('/rest/start', [TimeStampsController::class, 'break']);
 Route::post('/rest/stop', [TimeStampsController::class, 'restart']);
