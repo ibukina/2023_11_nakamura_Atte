@@ -15,13 +15,13 @@ class AuthenticatedSessionController extends Controller
     }
 
     public function store(LoginRequest $request){
-        $hashed=$request->only('password');
-        $password=Hash::make($hashed);
+        var_dump($request);
+        // $hashed=$request->only('password');
+        // $password=Hash::make($hashed);
         $credentials=$request->only('email', 'password');
         if(Auth::attempt($credentials)){
             return redirect('/')->intended('/login');
         }
-        return redirect()->back();
     }
 
     public function destroy(){
