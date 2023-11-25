@@ -9,13 +9,13 @@ use App\Models\Rest;
 
 class TimeStampsController extends Controller
 {
-    public function _construct(){
-        $this->middleware('auth')->only(['stamp', 'attendance']);
-    }
+    // public function _construct(){
+        // $this->middleware('auth')->only(['stamp', 'attendance']);
+    // }
 
     public function create(){
         $this->middleware(function(){
-            $user=Auth::user();
+            $user=Auth::user($user);
             return view('stamp', ['user'=>$user]);
         });
     }

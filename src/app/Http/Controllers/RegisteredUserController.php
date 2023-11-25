@@ -18,6 +18,8 @@ class RegisteredUserController extends Controller
         $password=Hash::make($request->password);
         $user=[$request->only(['username', 'email']), $password];
         User::create($user);
+        $username=$request->username;
+        return view('login', compact('username'));
         // $password=$request->password;
         // $hash_password=Hash::make($password);
         // $credentials=$request->only('email', 'password');
@@ -36,6 +38,5 @@ class RegisteredUserController extends Controller
         // }
         // Auth::attempt($user);
         // $username=$request->only(['username']);
-        return view('login', compact('username'));
     }
 }
