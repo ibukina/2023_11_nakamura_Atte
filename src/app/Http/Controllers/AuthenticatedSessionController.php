@@ -15,9 +15,6 @@ class AuthenticatedSessionController extends Controller
     }
 
     public function store(LoginRequest $request){
-        var_dump($request);
-        // $hashed=$request->only('password');
-        // $password=Hash::make($hashed);
         $credentials=$request->only('email', 'password');
         if(Auth::attempt($credentials)){
             return redirect('/')->intended('/login');
@@ -26,6 +23,6 @@ class AuthenticatedSessionController extends Controller
 
     public function destroy(){
         Auth::logout($user);
-        return redirect('login');
+        return redirect('/register')->intended('/login');
     }
 }

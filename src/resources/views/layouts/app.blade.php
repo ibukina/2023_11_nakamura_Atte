@@ -19,10 +19,10 @@
                 <ul class="header-list_item-wrapper">
                     @if(Auth::check())
                     <li class="header-list_item">
-                        <a class="header-list_item-link" href="/stamp">ホーム</a>
+                        <a class="header-list_item-link" href="/">ホーム</a>
                     </li>
                     <li class="header-list_item">
-                        <a class="header-list_item-link" href="">日付一覧</a>
+                        <a class="header-list_item-link" href="/attendance">日付一覧</a>
                     </li>
                     <li class="header-list_item">
                         <form action="/logout" method="post">

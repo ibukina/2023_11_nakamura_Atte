@@ -29,21 +29,21 @@ class User extends Authenticatable
     }
 
     protected $fillable = [
-        'job_id',
-        'rest_id',
+        // 'job_id',
+        // 'rest_id',
         'username',
         'email',
         'password',
     ];
 
-    public function insertUser($username, $email, $password)
-    {
-        return $this->create([
-            'username' => $username,
-            'email'=> $email,
-            'password'     => Hash::make($password),
-        ]);
-    }
+    // public function insertUser($username, $email, $password)
+    // {
+        // return $this->create([
+            // 'username' => $username,
+            // 'email'=> $email,
+            // 'password'     => Hash::make($password),
+        // ]);
+    // }
 
     /**
      * The attributes that should be hidden for serialization.
