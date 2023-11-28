@@ -6,9 +6,9 @@
 
 @section('content')
 <div class="content-stamp">
-    @foreach($username as $user)
+    @foreach($users as $user)
     <div class="stamp-form_title">
-        {{ $user }}さんお疲れ様です！
+        {{ $user->username }}さんお疲れ様です！
     </div>
     @endforeach
     <div class="stamp-form_wrapper">

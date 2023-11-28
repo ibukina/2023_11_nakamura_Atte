@@ -15,19 +15,22 @@ class RegisteredUserController extends Controller
     }
 
     public function store(RegisterRequest $request){
-        $password=Hash::make($request->password);
-        $user=[$request->only(['username', 'email']), $password];
-        User::create($user);
-        $username=$request->username;
-        return view('login', compact('username'));
+        // $password=Hash::make($request->password);
+        // $user=[$request->only(['username', 'email']), $password];
+        // User::create($user);
+        User::create([
+            'name' => $request['username'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+        $username=$request->only('username');
+        $credentials=$request->only('email', 'password');
+        if(Auth::attempt($credentials)){
+            return redirect('/')->intended('/login');
+        }
+        // return view('login', compact('username'));
         // $password=$request->password;
         // $hash_password=Hash::make($password);
-        // $credentials=$request->only('email', 'password');
-        // if(Auth::attempt($credentials)){
-            // $username=$request->username;
-            // $request->session()->regenerate();
-            // return redirect('/', compact('username'))->intended('/');;
-        // }
         // return redirect()->back();
         // $credentials=[$request->only('email'),$password];
         // $username=$request->only(['username']);
