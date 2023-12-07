@@ -10,8 +10,12 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
+mix.setPublicPath('public');
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
+mix.js(['src/resources/js/app.js','src/resources/js/time.js'], 'src/public/js')
+    .autoload({
+        "jquery": ['$', 'window.jQuery'],
+    })
+    .postCss('src/resources/css/app.css', 'src/public/css', [
         //
     ]);

@@ -17,8 +17,8 @@ class CreateRestsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('job_id')->constrained()->cascadeOnDelete();
-            $table->datetime('rest_start');
-            $table->datetime('rest_stop');
+            $table->datetime('rest_start')->nullable();
+            $table->datetime('rest_stop')->nullable();
             $table->timestamps();
         });
     }

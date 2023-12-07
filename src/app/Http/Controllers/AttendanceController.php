@@ -14,5 +14,6 @@ class AttendanceController extends Controller
         if(Auth::check()){
             return view ('attendance');
         }
+        return redirect('/login');
     }
 }

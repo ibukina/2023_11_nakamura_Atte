@@ -18,7 +18,7 @@ class Job extends Model
     }
 
     protected $fillable = [
-        'rest_id',
+        'user_id',
         'clock_in',
         'clock_out',
     ];
