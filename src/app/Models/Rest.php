@@ -18,6 +18,8 @@ class Rest extends Model
     }
 
     protected $fillable = [
+        'user_id',
+        'job_id',
         'rest_start',
         'rest_stop',
     ];

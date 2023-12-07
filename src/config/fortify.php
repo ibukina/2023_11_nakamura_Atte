@@ -145,7 +145,7 @@ return [
     */
 
     'features' => [
-        Features::registration(), //ユーザー登録
+        // Features::registration(), //ユーザー登録
         Features::resetPasswords(), //パスワードリセット
         Features::emailVerification(), //メールアドレス確認
         // Features::updateProfileInformation(), //登録情報の更新
