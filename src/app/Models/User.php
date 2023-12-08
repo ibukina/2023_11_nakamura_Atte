@@ -20,8 +20,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
 
-    public function jobs(){
-        return $this->hasMany('App\Models\Job');
+    public function works(){
+        return $this->hasMany('App\Models\Work');
     }
 
     public function rests(){

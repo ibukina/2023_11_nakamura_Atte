@@ -25,9 +25,9 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy']);
 
 Route::get('/attendance', [AttendanceController::class, 'create']);
 Route::get('/', [TimeStampsController::class, 'create']);
-Route::post('/job/start', [TimeStampsController::class, 'start']);
+Route::post('/work/start', [TimeStampsController::class, 'start']);
 Route::post('/rest/start', [TimeStampsController::class, 'break']);
 Route::post('/rest/stop', [TimeStampsController::class, 'restart']);
-Route::post('/job/stop', [TimeStampsController::class, 'stop']);
+Route::post('/work/stop', [TimeStampsController::class, 'stop']);
 
 require __DIR__.'../../config/fortify.php';
