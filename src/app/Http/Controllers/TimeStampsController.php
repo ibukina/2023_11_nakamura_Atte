@@ -22,17 +22,19 @@ class TimeStampsController extends Controller
         $request->validate([
             'clock_in' => 'required|date',
         ]);
+        $users=[Auth::user()->username];
         Work::create([
             'user_id'=>Auth::user()->id,
             'clock_in'=>$request->input('clock_in'),
         ]);
-        return redirect('/');
+        return view('stamp', compact('users'));
     }
 
     public function stop(Request $request){
         $request->validate([
             'clock_out' => 'required|date',
         ]);
+        $users=[Auth::user()->username];
         $user_id=Auth::user()->id;
         $clock_out=$request->input('clock_out');
         $work=Work::where('user_id', $user_id)->whereNull('clock_out')->first();
@@ -41,13 +43,14 @@ class TimeStampsController extends Controller
                 'clock_out'=>$clock_out,
             ]);
         }
-        return redirect('/');
+        return view('stamp', compact('users'));
     }
 
     public function break(Request $request){
         $request->validate([
             'rest_start' => 'required|date',
         ]);
+        $users=[Auth::user()->username];
         $user_id=Auth::user()->id;
         $work_id=Work::where('user_id',$user_id)->whereNull('clock_out')->first()->id;
         $work=Work::where('user_id', $user_id)->whereNull('clock_out')->first();
@@ -58,13 +61,14 @@ class TimeStampsController extends Controller
             'rest_start'=>$request['rest_start'],
             ]);
         }
-        return redirect('/');
+        return view('stamp', compact('users'));
     }
 
     public function restart(Request $request){
         $request->validate([
             'rest_stop' => 'required|date',
         ]);
+        $users=[Auth::user()->username];
         return redirect('/');
     }
 }
