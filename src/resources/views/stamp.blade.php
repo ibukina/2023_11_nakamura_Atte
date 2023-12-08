@@ -17,12 +17,12 @@
     @endforeach
     <div class="stamp-form_wrapper">
         <div class="stamp-form">
-            <form class="stamp-form_item" action="/job/start" method="post">
+            <form class="stamp-form_item" action="/work/start" method="post">
                 @csrf
                 <input type="hidden" name="clock_in" id="clock_in_time">
                 <button class="stamp-form_item-button" id="button_clock_in">勤務開始</button>
             </form>
-            <form class="stamp-form_item" action="/job/stop" method="post">
+            <form class="stamp-form_item" action="/work/stop" method="post">
                 @csrf
                 <input type="hidden" name="clock_out" id="clock_out_time">
                 <button class="stamp-form_item-button" id="button_clock_out">勤務終了</button>

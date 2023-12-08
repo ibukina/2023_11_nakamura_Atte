@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use App\Models\Job;
+use App\Models\Work;
 use App\Models\Rest;
 
 class TimeStampsController extends Controller
@@ -22,7 +22,7 @@ class TimeStampsController extends Controller
         $request->validate([
             'clock_in' => 'required|date',
         ]);
-        Job::create([
+        Work::create([
             'user_id'=>Auth::user()->id,
             'clock_in'=>$request->input('clock_in'),
         ]);
@@ -35,9 +35,9 @@ class TimeStampsController extends Controller
         ]);
         $user_id=Auth::user()->id;
         $clock_out=$request->input('clock_out');
-        $job=Job::where('user_id', $user_id)->whereNull('clock_out')->first();
-        if($job){
-            $job->update([
+        $work=Work::where('user_id', $user_id)->whereNull('clock_out')->first();
+        if($work){
+            $work->update([
                 'clock_out'=>$clock_out,
             ]);
         }
@@ -49,12 +49,12 @@ class TimeStampsController extends Controller
             'rest_start' => 'required|date',
         ]);
         $user_id=Auth::user()->id;
-        $job_id=Job::where('user_id',$user_id)->whereNull('clock_out')->first()->id;
-        $job=Job::where('user_id', $user_id)->whereNull('clock_out')->first();
-        if($job){
+        $work_id=Work::where('user_id',$user_id)->whereNull('clock_out')->first()->id;
+        $work=Work::where('user_id', $user_id)->whereNull('clock_out')->first();
+        if($work){
             Rest::create([
             'user_id'=>$user_id,
-            'job_id'=>$job_id,
+            'work_id'=>$work_id,
             'rest_start'=>$request['rest_start'],
             ]);
         }
