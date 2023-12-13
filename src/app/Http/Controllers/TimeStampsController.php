@@ -26,7 +26,10 @@ class TimeStampsController extends Controller
             'user_id'=>Auth::user()->id,
             'clock_in'=>$request->input('clock_in'),
         ]);
-        return redirect('/');
+        return response()->json([
+        'message' => 'データベースに値を格納しました',
+        'redirect' => '/' // リダイレクト先のURL
+        ]);
     }
 
     public function stop(Request $request){
@@ -41,7 +44,10 @@ class TimeStampsController extends Controller
                 'clock_out'=>$clock_out,
             ]);
         }
-        return redirect('/');
+        return response()->json([
+        'message' => 'データベースに値を格納しました',
+        'redirect' => '/'
+        ]);
     }
 
     public function break(Request $request){
@@ -58,13 +64,21 @@ class TimeStampsController extends Controller
             'rest_start'=>$request['rest_start'],
             ]);
         }
-        return redirect('/');
+        return response()->json([
+        'message' => 'データベースに値を格納しました',
+        'redirect' => '/'
+        ]);
     }
 
     public function restart(Request $request){
         $request->validate([
             'rest_stop' => 'required|date',
         ]);
-        return redirect('/');
+        $user_id=Auth::user()->id;
+        $rest=Rest::where('user_id', $user_id)->whereNull('rest_stop')->first();
+        return response()->json([
+        'message' => 'データベースに値を格納しました',
+        'redirect' => '/'
+        ]);
     }
 }

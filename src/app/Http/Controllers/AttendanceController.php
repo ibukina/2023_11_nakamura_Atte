@@ -12,7 +12,9 @@ class AttendanceController extends Controller
 {
     public function create(){
         if(Auth::check()){
-            return view ('attendance');
+            // $items=User::with('work')->WorkDateSearch($request->date)->RestDateSearch($request->date)->get();
+            $items=User::with('work')->with('rest')->get();
+            return view ('attendance', compact('items'));
         }
         return redirect('/login');
     }
