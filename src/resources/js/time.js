@@ -16,6 +16,7 @@ $(function () {
     // 休憩開始ボタンがクリックされたときの処理
     $("#button_rest_start").on("click", function () {
         // 現在の日時を文字列に変換して、idがclock_out_timeの要素に値を設定する
+        console.log(new Date());
         $("#rest_start_time").val(new Date().toLocaleString());
     });
     // 休憩終了ボタンがクリックされたときの処理

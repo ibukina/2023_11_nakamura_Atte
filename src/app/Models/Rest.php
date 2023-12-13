@@ -17,6 +17,18 @@ class Rest extends Model
         return $this->belongsTo('App\Models\Work');
     }
 
+    public function scopeWorkDateSearch($query, $date){
+        if(!empty($date)){
+            $query->where('clock_in', 'like', '%' . $date . '%');
+        }
+    }
+
+    public function scopeRestDateSearch($query, $date){
+        if(!empty($date)){
+            $query->where('rest_start', 'like', '%' . $date . '%');
+        }
+    }
+
     protected $fillable = [
         'user_id',
         'work_id',

@@ -15,6 +15,7 @@
             <th class="table-header">休憩時間</th>
             <th class="table-header">勤務時間</th>
         </tr>
+        @foreach($items as items)
         <tr class="table-row">
             <td class="table-data"></td>
             <td class="table-data"></td>
@@ -22,6 +23,7 @@
             <td class="table-data"></td>
             <td class="table-data"></td>
         </tr>
+        @endforeach
     </table>
     <div class="attendance-list_page"></div>
 </div>
