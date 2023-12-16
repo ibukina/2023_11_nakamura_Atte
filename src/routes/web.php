@@ -24,6 +24,8 @@ Route::post('/login', [AuthenticatedSessionController::class, 'store'])->name('l
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy']);
 
 Route::get('/attendance', [AttendanceController::class, 'create']);
+Route::post('/date-back', [AttendanceController::class, 'back']);
+Route::post('/date-next', [AttendanceController::class, 'next']);
 Route::get('/', [TimeStampsController::class, 'create']);
 Route::post('/work-start', [TimeStampsController::class, 'start']);
 Route::post('/rest-start', [TimeStampsController::class, 'break']);
