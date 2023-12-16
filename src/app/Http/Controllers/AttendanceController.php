@@ -4,18 +4,46 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Work;
-use App\Models\rest;
+use App\Models\Rest;
 
 class AttendanceController extends Controller
 {
     public function create(){
         if(Auth::check()){
-            // $items=User::with('work')->WorkDateSearch($request->date)->RestDateSearch($request->date)->get();
-            $items=User::with('work')->with('rest')->get();
-            return view ('attendance', compact('items'));
+            $date=Carbon::now()->format('Y-m-d');
+            return view ('attendance', compact('date'));
         }
         return redirect('/login');
+    }
+
+    public function back(Request $request){
+        $request->validate([
+            'date' => 'required|date',
+        ]);
+        $dates=Carbon::parse($request->date);
+        $date=$dates->subDays(1)->format('Y-m-d');
+        $year=Carbon::parse($date)->format('Y');
+        $month=Carbon::parse($date)->format('m');
+        $day=Carbon::parse($date)->format('d');
+        $users=User::select('username')->withWorks($year, $month, $day)->withRests($year, $month, $day)->get();
+        $users=User::Paginate(5);
+        return view('attendance', compact('date', 'users'));
+    }
+
+    public function next(Request $request){
+        $request->validate([
+            'date' => 'required|date',
+        ]);
+        $dates=Carbon::parse($request->date);
+        $date=$dates->addDays(1)->format('Y-m-d');
+        $year=Carbon::parse($date)->format('Y');
+        $month=Carbon::parse($date)->format('m');
+        $day=Carbon::parse($date)->format('d');
+        $users=User::select('username')->withWorks($year, $month, $day)->withRests($year, $month, $day)->get();
+        $users=User::Paginate(5);
+        return view('attendance', compact('date', 'users'));
     }
 }
