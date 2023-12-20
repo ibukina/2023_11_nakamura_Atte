@@ -23,4 +23,9 @@ class Rest extends Model
         'rest_start',
         'rest_stop',
     ];
+
+    protected $dates=[
+        'rest_start',
+        'rest_stop',
+    ];
 }

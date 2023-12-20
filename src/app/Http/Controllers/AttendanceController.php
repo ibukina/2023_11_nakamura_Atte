@@ -14,7 +14,11 @@ class AttendanceController extends Controller
     public function create(){
         if(Auth::check()){
             $date=Carbon::now()->format('Y-m-d');
-            return view ('attendance', compact('date'));
+            $year=Carbon::parse($date)->format('Y');
+            $month=Carbon::parse($date)->format('m');
+            $day=Carbon::parse($date)->format('d');
+            $users=User::select('username')->withWorks($year, $month, $day)->withRests($year, $month, $day)->paginate(5);
+            return view ('attendance', compact('date', 'users'));
         }
         return redirect('/login');
     }
@@ -28,8 +32,14 @@ class AttendanceController extends Controller
         $year=Carbon::parse($date)->format('Y');
         $month=Carbon::parse($date)->format('m');
         $day=Carbon::parse($date)->format('d');
-        $users=User::select('username')->withWorks($year, $month, $day)->withRests($year, $month, $day)->get();
-        $users=User::Paginate(5);
+        $users=User::select('username')->withWorks($year, $month, $day)->withRests($year, $month, $day)->paginate(5);
+        foreach($users as $user){
+            foreach($user->works as $work){
+                var_dump($work->work_time);
+            }foreach($user->rests as $rest){
+                var_dump($rest->rest_time);
+            }
+        }
         return view('attendance', compact('date', 'users'));
     }
 
@@ -43,7 +53,14 @@ class AttendanceController extends Controller
         $month=Carbon::parse($date)->format('m');
         $day=Carbon::parse($date)->format('d');
         $users=User::select('username')->withWorks($year, $month, $day)->withRests($year, $month, $day)->get();
-        $users=User::Paginate(5);
+        // $users=User::paginate(5);
+        foreach($users as $user){
+            foreach($user->works as $work){
+                var_dump($work->work_time);
+            }foreach($user->rests as $rest){
+                var_dump($rest->rest_time);
+            }
+        }
         return view('attendance', compact('date', 'users'));
     }
 }
