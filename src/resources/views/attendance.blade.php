@@ -31,10 +31,14 @@
         @foreach($users as $user)
         <tr class="table-row">
             <td class="table-data">{{ $user->username }}</td>
-            <td class="table-data">{{ $user->clock_in }}</td>
-            <td class="table-data">{{ $user->clock_out }}</td>
-            <td class="table-data">{{ $user->rest_time }}</td>
-            <td class="table-data">{{ $user->work_time }}</td>
+            @foreach($user->works as $work)
+            <td class="table-data">{{ date('H:i:s', strtotime($work->clock_in)) }}</td>
+            <td class="table-data">{{ date('H:i:s', strtotime($work->clock_out)) }}</td>
+            @foreach($user->rests as $rest)
+            <td class="table-data">{{ date('H:i:s', strtotime($rest->rest_time)) }}</td>
+            @endforeach
+            <td class="table-data">{{ date('H:i:s', strtotime($work->work_time)) }}</td>
+            @endforeach
         </tr>
         @endforeach
         @endif

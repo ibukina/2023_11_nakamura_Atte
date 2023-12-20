@@ -25,17 +25,17 @@
             <form class="stamp-form_item" action="/work-stop" method="post">
                 @csrf
                 <input type="hidden" name="clock_out" id="clock_out_time">
-                <button class="stamp-form_item-button" id="button_clock_out">勤務終了</button>
+                <button class="stamp-form_item-button" id="button_clock_out" disabled>勤務終了</button>
             </form>
-            <form class="stamp-form_item" action="/rest-start" method="post" >
+            <form class="stamp-form_item" action="/rest-start" method="post">
                 @csrf
                 <input type="hidden" name="rest_start" id="rest_start_time">
-                <button class="stamp-form_item-button" id="button_rest_start" >休憩開始</button>
+                <button class="stamp-form_item-button" id="button_rest_start" disabled>休憩開始</button>
             </form>
             <form class="stamp-form_item" action="/rest-stop" method="post">
                 @csrf
                 <input type="hidden" name="rest_stop" id="rest_stop_time">
-                <button class="stamp-form_item-button" id="button_rest_stop">休憩終了</button>
+                <button class="stamp-form_item-button" id="button_rest_stop" disabled>休憩終了</button>
             </form>
         </div>
     </div>

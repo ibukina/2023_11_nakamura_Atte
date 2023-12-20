@@ -22,4 +22,9 @@ class Work extends Model
         'clock_in',
         'clock_out',
     ];
+
+    protected $date=[
+        'clock_in',
+        'clock_out',
+    ];
 }

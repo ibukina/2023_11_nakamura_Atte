@@ -76,6 +76,11 @@ class TimeStampsController extends Controller
         ]);
         $user_id=Auth::user()->id;
         $rest=Rest::where('user_id', $user_id)->whereNull('rest_stop')->first();
+        if($rest){
+            $rest->update([
+                'rest_stop'=>$request['rest_stop'],
+            ]);
+        }
         return response()->json([
         'message' => 'データベースに値を格納しました',
         'redirect' => '/'

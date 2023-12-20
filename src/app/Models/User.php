@@ -9,7 +9,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
-use DB;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -31,14 +32,15 @@ class User extends Authenticatable
 
     public function scopeWithWorks($query, $year, $month, $day){
         return $query->with(['works'=>function($query)use($year, $month, $day){
-            $query->select('user_id', 'clock_in', 'clock_out', DB::raw('TIMEDIFF(clock_in, clock_out) as work_time'))
-            ->whereYear('clock_in', $year)->whereMonth('clock_in', $month)->whereDay('clock_in', $day);
+            $query->whereYear('clock_in', $year)->whereMonth('clock_in', $month)->whereDay('clock_in', $day)
+            ->select('clock_in', 'clock_out', DB::raw('TIMEDIFF(clock_out,clock_in) as work_time'));
         }]);
     }
 
     public function scopeWithRests($query, $year, $month, $day){
         return $query->with(['rests'=>function($query)use($year, $month, $day){
-            $query->select('user_id', 'work_id', 'rest_start', 'rest_stop', DB::raw('TIMEDIFF(rest_start, rest_stop) as rest_time'))->whereYear('rest_start', $year)->whereMonth('rest_start', $month)->whereDay('rest_start', $day);
+            $query->whereYear('rest_start', $year)->whereMonth('rest_start', $month)->whereDay('rest_start', $day)
+            ->select('rest_start', 'rest_stop', DB::raw('TIMEDIFF(rest_stop,rest_start) as rest_time'));
         }]);
     }
 

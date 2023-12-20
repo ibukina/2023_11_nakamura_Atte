@@ -21,5 +21,11 @@ class UsersTableSeeder extends Seeder
             'password'=>Hash::make('2DDywxxwE3VM@B2'),
         ];
         DB::table('users')->insert($param);
+        $param=[
+            'username'=>'山田 二郎',
+            'email'=>'what@example.com',
+            'password'=>Hash::make('927AP2QJqqYQA@'),
+        ];
+        DB::table('users')->insert($param);
     }
 }
