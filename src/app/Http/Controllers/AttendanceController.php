@@ -53,7 +53,7 @@ class AttendanceController extends Controller
         $month=Carbon::parse($date)->format('m');
         $day=Carbon::parse($date)->format('d');
         $users=User::select('username')->withWorks($year, $month, $day)->withRests($year, $month, $day)->get();
-        // $users=User::paginate(5);
+        $users=User::paginate(5);
         foreach($users as $user){
             foreach($user->works as $work){
                 var_dump($work->work_time);
