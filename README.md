@@ -10,7 +10,8 @@
 
 #### タイムカードページ
 
-![localhost_register](https://github.com/ibukina/2023_11_nakamura_Atte/assets/142294463/4ca8977b-9d1d-4d24-a529-de464a326ad2)
+![localhost_](https://github.com/ibukina/2023_11_nakamura_Atte/assets/142294463/9e5f9384-a0f9-4b44-b9b1-c8e492d8f01c)
+
 
 #### 日付別勤怠情報ページ
 
