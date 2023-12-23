@@ -39,7 +39,7 @@ http://localhost
 http://localhost/attendance
 となっております。
 
-:::note warn
+::: note warn
 タイムカード及び勤務情報のページは、ログインしているユーザーのみ閲覧可能となっております。
 :::
 
@@ -85,7 +85,7 @@ http://localhost/attendance
 
 ## 環境構築
 
-:::note warn
+::: note warn
 これは Windows での構築方法です。
 他 OS の場合は違う場合がございます。
 :::
