@@ -1,7 +1,5 @@
 # 2023_11_nakamura_Atte<br>
 
----
-
 #### 会員登録ページ
 
 ![localhost_register](https://github.com/ibukina/2023_11_nakamura_Atte/assets/142294463/4ca8977b-9d1d-4d24-a529-de464a326ad2)
@@ -26,13 +24,9 @@
 
 ## 作成した目的
 
----
-
 企業の人事評価のために作成しました。
 
 ## アプリケーション URL
-
----
 
 ユーザー登録ページは
 http://localhost/register  
@@ -50,8 +44,6 @@ http://localhost/attendance
 
 ## 機能一覧
 
----
-
 - 会員登録
 - ログイン
 - ログアウト
@@ -68,8 +60,6 @@ http://localhost/attendance
 
 ## 使用技術(実行環境)
 
----
-
 > laravel Framework 8.83.27
 > php 7.4.9
 > mysql 8.0.26
@@ -78,8 +68,6 @@ http://localhost/attendance
 > jquery ^3.7.1
 
 ## テーブル設計
-
----
 
 - UsersTable
   ![localhost_8080_index php_route=_table_structure db=laravel_db table=users](https://github.com/ibukina/2023_11_nakamura_Atte/assets/142294463/4c8486e0-951c-4350-9762-427c4b965734)
@@ -92,13 +80,9 @@ http://localhost/attendance
 
 ## ER 図
 
----
-
 ![atte drawio](https://github.com/ibukina/2023_11_nakamura_Atte/assets/142294463/e91c977d-a67b-49d1-8054-dec4389688d0)
 
 ## 環境構築
-
----
 
 :::note warn
 これは Windows での構築方法です。
@@ -248,8 +232,6 @@ php コンテナからのログアウトには`exit`を実行してください�
 これで環境構築は終了です。お疲れ様でした。
 
 ## テストユーザー
-
----
 
 動作確認用のユーザー情報です。
 環境構築後、laravel を導入した php コンテナにて
