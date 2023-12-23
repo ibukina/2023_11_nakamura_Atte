@@ -196,7 +196,7 @@ http://localhost:8080/
 - JavaScript と jquery の導入
   プロジェクトディレクトリで
 
-```
+```コマンドプロンプト
 
 ```
 

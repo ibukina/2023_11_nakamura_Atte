@@ -50,15 +50,6 @@ class User extends Authenticatable
         'password',
     ];
 
-    // public function insertUser($username, $email, $password)
-    // {
-        // return $this->create([
-            // 'username' => $username,
-            // 'email'=> $email,
-            // 'password'     => Hash::make($password),
-        // ]);
-    // }
-
     /**
      * The attributes that should be hidden for serialization.
      *
