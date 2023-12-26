@@ -29,13 +29,13 @@
 ## アプリケーション URL
 
 ユーザー登録ページは<br>
-http://localhost/register<br>
+http://localhost/register  
 ログインページは<br>
-http://localhost/login<br>
+http://localhost/login  
 タイムカードのページは<br>
-http://localhost<br>
+http://localhost  
 勤務情報のページは<br>
-http://localhost/attendance<br>
+http://localhost/attendance  
 となっております。<br>
 
 >[!IMPORTANT]
