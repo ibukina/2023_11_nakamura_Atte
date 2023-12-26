@@ -175,12 +175,18 @@ php artisan key:generate
 http://localhost:8080/
 にアクセスしてください。
 
-- JavaScript と jquery の導入
+- JavaScriptコードのコンパイル
   プロジェクトディレクトリで
 
 ```コマンドプロンプト
-
+npm install
 ```
+を実行後、
+```コマンドプロンプト
+npm run dev
+```
+をしてください。
+これでjavasciptのコードが動くようになります。
 
 - データベースとテーブルの作成
   プロジェクトディレクトリで
