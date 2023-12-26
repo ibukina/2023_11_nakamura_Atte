@@ -28,15 +28,15 @@
 
 ## アプリケーション URL
 
-ユーザー登録ページは
-http://localhost/register  
-ログインページは
-http://localhost/login  
-タイムカードのページは
-http://localhost  
-勤務情報のページは
-http://localhost/attendance
-となっております。
+ユーザー登録ページは<br>
+http://localhost/register<br>
+ログインページは<br>
+http://localhost/login<br>
+タイムカードのページは<br>
+http://localhost<br>
+勤務情報のページは<br>
+http://localhost/attendance<br>
+となっております。<br>
 
 >[!IMPORTANT]
 >タイムカード及び勤務情報のページは、ログインしているユーザーのみ閲覧可能となっております。
@@ -59,12 +59,12 @@ http://localhost/attendance
 
 ## 使用技術(実行環境)
 
-> laravel Framework 8.83.27
-> php 7.4.9
-> mysql 8.0.26
-> nginx 1.21.1
-> JavaScript v12.22.9
-> jquery ^3.7.1
+> laravel Framework 8.83.27<br>
+> php 7.4.9<br>
+> mysql 8.0.26<br>
+> nginx 1.21.1<br>
+> JavaScript v12.22.9<br>
+> jquery ^3.7.1<br>
 
 ## テーブル設計
 
