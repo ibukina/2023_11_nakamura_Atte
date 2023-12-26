@@ -28,15 +28,15 @@
 
 ## アプリケーション URL
 
-ユーザー登録ページは<br>
+- ユーザー登録ページは
 http://localhost/register  
-ログインページは<br>
+- ログインページは
 http://localhost/login  
-タイムカードのページは<br>
+- タイムカードのページは
 http://localhost  
-勤務情報のページは<br>
+- 勤務情報のページは
 http://localhost/attendance  
-となっております。<br>
+となっております。
 
 >[!IMPORTANT]
 >タイムカード及び勤務情報のページは、ログインしているユーザーのみ閲覧可能となっております。
