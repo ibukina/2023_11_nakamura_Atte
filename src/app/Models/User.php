@@ -30,20 +30,6 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Rest');
     }
 
-    public function scopeWithWorks($query, $year, $month, $day){
-        return $query->with(['works'=>function($query)use($year, $month, $day){
-            $query->whereYear('clock_in', $year)->whereMonth('clock_in', $month)->whereDay('clock_in', $day)
-            ->select('clock_in', 'clock_out', DB::raw('TIMEDIFF(clock_out,clock_in) as work_time'));
-        }]);
-    }
-
-    public function scopeWithRests($query, $year, $month, $day){
-        return $query->with(['rests'=>function($query)use($year, $month, $day){
-            $query->whereYear('rest_start', $year)->whereMonth('rest_start', $month)->whereDay('rest_start', $day)
-            ->select('rest_start', 'rest_stop', DB::raw('TIMEDIFF(rest_stop,rest_start) as rest_time'));
-        }]);
-    }
-
     protected $fillable = [
         'username',
         'email',

@@ -14,11 +14,8 @@ class AttendanceController extends Controller
     public function create(){
         if(Auth::check()){
             $date=Carbon::now()->format('Y-m-d');
-            $year=Carbon::parse($date)->format('Y');
-            $month=Carbon::parse($date)->format('m');
-            $day=Carbon::parse($date)->format('d');
-            $users=User::select('username')->withWorks($year, $month, $day)->withRests($year, $month, $day)->paginate(5);
-            return view ('attendance', compact('date', 'users'));
+            $works=Work::whereDate('clock_in', $date)->with('user', 'rests')->paginate(5);
+            return view ('attendance', compact('date', 'works'));
         }
         return redirect('/login');
     }
@@ -29,18 +26,14 @@ class AttendanceController extends Controller
         ]);
         $dates=Carbon::parse($request->date);
         $date=$dates->subDays(1)->format('Y-m-d');
-        $year=Carbon::parse($date)->format('Y');
-        $month=Carbon::parse($date)->format('m');
-        $day=Carbon::parse($date)->format('d');
-        $users=User::select('username')->withWorks($year, $month, $day)->withRests($year, $month, $day)->paginate(5);
-        foreach($users as $user){
-            foreach($user->works as $work){
-                var_dump($work->work_time);
-            }foreach($user->rests as $rest){
+        $works=Work::whereDate('clock_in', $date)->with('user', 'rests')->paginate(5);
+        foreach($works as $work){
+            var_dump($work->work_time);
+            foreach($work->rests as $rest){
                 var_dump($rest->rest_time);
             }
         }
-        return view('attendance', compact('date', 'users'));
+        return view('attendance', compact('date', 'works'));
     }
 
     public function next(Request $request){
@@ -49,18 +42,13 @@ class AttendanceController extends Controller
         ]);
         $dates=Carbon::parse($request->date);
         $date=$dates->addDays(1)->format('Y-m-d');
-        $year=Carbon::parse($date)->format('Y');
-        $month=Carbon::parse($date)->format('m');
-        $day=Carbon::parse($date)->format('d');
-        $users=User::select('username')->withWorks($year, $month, $day)->withRests($year, $month, $day)->get();
-        $users=User::paginate(5);
-        foreach($users as $user){
-            foreach($user->works as $work){
-                var_dump($work->work_time);
-            }foreach($user->rests as $rest){
+        $works=Work::whereDate('clock_in', $date)->with('user', 'rests')->paginate(5);
+        foreach($works as $work){
+            var_dump($work->work_time);
+            foreach($work->rests as $rest){
                 var_dump($rest->rest_time);
             }
         }
-        return view('attendance', compact('date', 'users'));
+        return view('attendance', compact('date', 'works'));
     }
 }
