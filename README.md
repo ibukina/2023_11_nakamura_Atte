@@ -246,9 +246,8 @@ php artisan db:seed
 
 を行って頂くと、下記のユーザーが作成されます。
 
-> id:1
-> username:山田 太郎
-> email:test@example.com
-> password:2DDywxxwE3VM@B2
+> username:山田 太郎  
+> email:test@example.com  
+> password:2DDywxxwE3VM@B2  
 
 `php artisan db:seed`で作成した情報は、`php artisan migrate:fresh`で一括削除できます。
