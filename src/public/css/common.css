@@ -33,6 +33,16 @@
     color: black;
 }
 
+.small-wrapper{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.atte-small{
+    margin: 10px 0;
+}
+
 @media screen and (max-width:768px) {
     .header-icon{
         font-size: 40px;

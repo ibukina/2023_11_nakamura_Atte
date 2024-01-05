@@ -19,6 +19,7 @@ class Rest extends Model
     }
 
     protected $fillable = [
+        'user_id',
         'work_id',
         'rest_start',
         'rest_stop',
@@ -39,6 +40,10 @@ class Rest extends Model
         $seconds = $time % 60;
         $minutes = ($time - $seconds) % 60;
         $hours = ($time - $seconds - $minutes * 60) / 3600;
+        if($hours < 1){
+            $minutes += $hours * 60;
+            $hours = 0;
+        }
         return sprintf('%02d:%02d:%02d', $hours, $minutes, $seconds);
     }
 }

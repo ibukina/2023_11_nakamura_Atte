@@ -7,13 +7,13 @@
 @section('content')
 <div class="content-attendance">
     <div class="attendance-list_date">
-        <form class="date-form_back" action="/date-back" method="post">
+        <form class="date-form_back" action="/date-back" method="get">
             @csrf
             <input type="hidden" name="date" value="{{ $date }}">
             <button class="date-button" id="back"><</button>
         </form>
         <div class="date">{{ $date }}</div>
-        <form class="date-form_next" action="/date-next" method="post">
+        <form class="date-form_next" action="/date-next" method="get">
             @csrf
             <input type="hidden" name="date" value="{{ $date }}">
             <button class="date-button" id="next">></button>
@@ -42,7 +42,7 @@
         @endif
     </table>
     <div class="attendance-list_page">
-        {{ $works->links() }}
+        {{ $works->appends(request()->query())->links() }}
     </div>
 </div>
 @endsection
