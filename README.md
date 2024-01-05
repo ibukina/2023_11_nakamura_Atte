@@ -2,20 +2,20 @@
 
 #### 会員登録ページ
 
-![localhost_register](https://github.com/ibukina/2023_11_nakamura_Atte/assets/142294463/4ca8977b-9d1d-4d24-a529-de464a326ad2)
+![localhost_register](https://github.com/ibukina/2023_11_nakamura_Atte/assets/142294463/2b487326-867e-4176-9b5d-c435ce7c2613)
 
 #### ログインページ
 
-![localhost_login](https://github.com/ibukina/2023_11_nakamura_Atte/assets/142294463/fc06936b-0972-4c4d-8e42-6fda5cd2e10e)
+![localhost_login](https://github.com/ibukina/2023_11_nakamura_Atte/assets/142294463/7a788813-0685-4d33-84b2-60f976f9247b)
 
 #### タイムカードページ
 
-![localhost_](https://github.com/ibukina/2023_11_nakamura_Atte/assets/142294463/9e5f9384-a0f9-4b44-b9b1-c8e492d8f01c)
+![localhost_](https://github.com/ibukina/2023_11_nakamura_Atte/assets/142294463/c77f1a51-2e04-492a-9121-5bbf268b8a1c)
 
 
 #### 日付別勤怠情報ページ
 
-![localhost_date-next__token=Mhvl3Pr0s10Fj7vJqu0euW1LC785Di4k2QkqqB57 date=2024-01-03](https://github.com/ibukina/2023_11_nakamura_Atte/assets/142294463/f6897950-3e05-4a76-9fd4-6e4ae2aad0d2)
+![localhost_date-back__token=5YIcG3uKPhYwwJZBiIgmyyoH6TQ7fDQ4CWt7Efbn date=2024-01-05](https://github.com/ibukina/2023_11_nakamura_Atte/assets/142294463/bd27160b-337b-4a0a-bd6d-ababc8304fd1)
 
 
 
