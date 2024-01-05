@@ -15,7 +15,8 @@
 
 #### 日付別勤怠情報ページ
 
-![localhost_date-next__token=OKWlj84cGDaPwaI35fNoED42A1kpBTkGa7W7YGBR date=2024-01-03](https://github.com/ibukina/2023_11_nakamura_Atte/assets/142294463/44094270-d806-4b76-974c-fd7b946ef085)
+![localhost_date-next__token=Mhvl3Pr0s10Fj7vJqu0euW1LC785Di4k2QkqqB57 date=2024-01-03](https://github.com/ibukina/2023_11_nakamura_Atte/assets/142294463/f6897950-3e05-4a76-9fd4-6e4ae2aad0d2)
+
 
 
 企業の勤怠管理システムです。<br>
