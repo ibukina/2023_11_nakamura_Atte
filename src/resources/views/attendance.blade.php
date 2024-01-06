@@ -36,7 +36,7 @@
             @foreach($work->rests as $rest)
             <td class="table-data">{{ $rest->rest_time }}</td>
             @endforeach
-            <td class="table-data">{{ $work->work_time }}</td>
+            <td class="table-data">{{ gmdate('H:i:s', strtotime($work->work_time) - strtotime($rest->rest_time)) }}</td>
         </tr>
         @endforeach
         @endif

@@ -40,8 +40,8 @@ class WorksTableSeeder extends Seeder
         DB::table('works')->insert($param);
         $param=[
             'user_id'=>'2',
-            'clock_in'=>'2023-01-04 10:00:00',
-            'clock_out'=>'2023-01-04 19:00:00',
+            'clock_in'=>'2024-01-04 10:00:00',
+            'clock_out'=>'2024-01-04 19:00:00',
         ];
         DB::table('works')->insert($param);
         $param=[
