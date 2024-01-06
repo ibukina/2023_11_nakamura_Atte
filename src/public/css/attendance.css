@@ -47,6 +47,59 @@
     font-size: 15px;
 }
 
+.attendance-list_page{
+    width: 500px;
+}
+
+.pagination{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+.page-item{
+    width: 30px;
+    height: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 12px;
+    border: 1px solid #f2f2f2;
+    background-color: white;
+    color: blue;
+}
+
+.page-item.active{
+    width: 30px;
+    height: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 12px;
+    border: 1px solid blue;
+    background-color: blue;
+    color: white;
+}
+
+.page-item:first-child, .page-item:last-child{
+    width: 20px;
+    height: 30px;
+    font-size: 10px;
+}
+
+.page-item:first-child{
+    border-radius: 5px 0 0 5px;
+}
+
+.page-item:last-child{
+    border-radius: 0 5px 5px 0;
+}
+
+.page-link{
+    border: none;
+}
+
 @media screen and (max-width:1024px) {
     .attendance-list_table {
         width: 800px;

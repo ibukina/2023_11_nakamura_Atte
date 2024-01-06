@@ -40,5 +40,10 @@
     <main>
         @yield('content')
     </main>
+    <footer>
+        <div class="small-wrapper">
+            <small class="atte-small">Atte,inc.</small>
+        </div>
+    </footer>
 </body>
 </html>

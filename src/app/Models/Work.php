@@ -40,6 +40,10 @@ class Work extends Model
         $seconds = $time % 60;
         $minutes = ($time - $seconds) % 60;
         $hours = ($time - $seconds - $minutes * 60) / 3600;
+        if($hours < 1){
+            $minutes += $hours * 60;
+            $hours = 0;
+        }
         return sprintf('%02d:%02d:%02d', $hours, $minutes, $seconds);
     }
 }

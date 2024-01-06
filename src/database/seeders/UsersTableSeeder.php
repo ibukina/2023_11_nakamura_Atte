@@ -27,5 +27,29 @@ class UsersTableSeeder extends Seeder
             'password'=>Hash::make('927AP2QJqqYQA@'),
         ];
         DB::table('users')->insert($param);
+        $param=[
+            'username'=>'山田 三郎',
+            'email'=>'what3@example.com',
+            'password'=>Hash::make('327AP2QJqqYQA@'),
+        ];
+        DB::table('users')->insert($param);
+        $param=[
+            'username'=>'山田 四郎',
+            'email'=>'what4@example.com',
+            'password'=>Hash::make('827AP2QJqqYQA@'),
+        ];
+        DB::table('users')->insert($param);
+        $param=[
+            'username'=>'山田 五郎',
+            'email'=>'what5@example.com',
+            'password'=>Hash::make('627AP2QJqqYQA@'),
+        ];
+        DB::table('users')->insert($param);
+        $param=[
+            'username'=>'山田 六郎',
+            'email'=>'what6@example.com',
+            'password'=>Hash::make('127AP2QJqqYQA@'),
+        ];
+        DB::table('users')->insert($param);
     }
 }

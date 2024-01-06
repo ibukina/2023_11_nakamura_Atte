@@ -7,13 +7,13 @@
 @section('content')
 <div class="content-attendance">
     <div class="attendance-list_date">
-        <form class="date-form_back" action="/date-back" method="post">
+        <form class="date-form_back" action="/date-back" method="get">
             @csrf
             <input type="hidden" name="date" value="{{ $date }}">
             <button class="date-button" id="back"><</button>
         </form>
         <div class="date">{{ $date }}</div>
-        <form class="date-form_next" action="/date-next" method="post">
+        <form class="date-form_next" action="/date-next" method="get">
             @csrf
             <input type="hidden" name="date" value="{{ $date }}">
             <button class="date-button" id="next">></button>
@@ -36,13 +36,13 @@
             @foreach($work->rests as $rest)
             <td class="table-data">{{ $rest->rest_time }}</td>
             @endforeach
-            <td class="table-data">{{ $work->work_time }}</td>
+            <td class="table-data">{{ gmdate('H:i:s', strtotime($work->work_time) - strtotime($rest->rest_time)) }}</td>
         </tr>
         @endforeach
         @endif
     </table>
     <div class="attendance-list_page">
-        {{ $works->links() }}
+        {{ $works->appends(request()->query())->links() }}
     </div>
 </div>
 @endsection
